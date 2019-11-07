@@ -3,11 +3,13 @@ let router = express.Router();
 
 
 router.get('/', function(req, res, next) {
-  let link = null;
+    let link = null;
+    let quantity = 0;
 
-  res.render('index', {
-    link: link
-  });
+    res.render('transitions', {
+        link: link,
+        quantity: quantity
+    });
 });
 
 module.exports = router;
