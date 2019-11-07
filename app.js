@@ -1,15 +1,18 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+require('dotenv').config();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-let transitionsRouter = require('./routes/transitions');
-let myShortyRouter = require('./routes/myShorty');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const transitionsRouter = require('./routes/transitions');
+const myShortyRouter = require('./routes/myShorty');
 
-var app = express();
+const app = express();
+
+require('./database/lib/dbInit');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
