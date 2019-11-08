@@ -1,21 +1,21 @@
 /**
  * @return {string}
  */
-function GenerateShorty(url) {
+function GenerateShorty(link) {
     let length = 7;
     let shorty = '';
-    url.replace('https', '');
-    url.replace('http', '');
-    url.replace('/', '');
-    url.replace('.', '');
+    link = link.replace('https', '');
+    link = link.replace('http', '');
+    link = link.replace(/\//g, '');
+    link = link.replace(/\./g, '');
 
     for (let i = 0; i < length; i++) {
-        let id = Math.floor(Math.random() * url.length);
+        let id = Math.floor(Math.random() * link.length);
 
-        shorty += url[id];
-        url.replace(url[id], '');
+        shorty += link[id];
+        // link = link.replace(link[id], '');
     }
-    return shorty;
+    return 'http://localhost:3000/'+shorty;
 }
 
 

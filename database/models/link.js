@@ -3,11 +3,13 @@ const Sequelize = require('sequelize');
 
 const  link = sequelize.define('link', {
     url: {
-        type: Sequelize.STRING(3000),
+        type: Sequelize.STRING(700),
+        unique: true
     },
 
     shorty: {
-        type: Sequelize.STRING(3000),
+        type: Sequelize.STRING(700),
+        unique: true
     },
 
     autor: {
