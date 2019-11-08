@@ -15,7 +15,7 @@ function GenerateShorty(link) {
         shorty += link[id];
         // link = link.replace(link[id], '');
     }
-    return 'http://localhost:3000/'+shorty;
+    return shorty;
 }
 
 

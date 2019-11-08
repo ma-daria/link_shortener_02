@@ -27,7 +27,7 @@ router.get('/', async function(req, res, next) {
 
 
     res.render('index', {
-        link: link
+        link: process.env.MY_SITE+link
     });
 });
 

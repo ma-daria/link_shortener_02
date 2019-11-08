@@ -10,6 +10,7 @@ const usersRouter = require('./routes/users');
 const transitionsRouter = require('./routes/transitions');
 const myShortyRouter = require('./routes/myShorty');
 const toShortyRouter = require('./routes/toShorty');
+const redirectRouter = require('./routes/redirect');
 
 const app = express();
 
@@ -28,8 +29,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/transitions', transitionsRouter);
-app.use('/myShorty', myShortyRouter);
+app.use('/myShorty/', myShortyRouter);
 app.use('/toShorty', toShortyRouter);
+
+app.use('/:link', redirectRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
