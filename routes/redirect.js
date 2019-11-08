@@ -8,7 +8,7 @@ router.get('/', async function(req, res, next) {
 
 
     let link = await links.findOne({
-        attributes: ['url'],
+        attributes: ['url', 'transitions'],
         where: {
             shorty: shorty
         }
@@ -21,6 +21,16 @@ router.get('/', async function(req, res, next) {
         res.render('error404');
     }
     else {
+        await links.update(
+        {transitions: link.dataValues.transitions + 1},
+        {where:{
+                shorty: shorty
+            }}
+        )
+            .catch((err) => {
+                console.log(err);
+            });
+
         res.redirect(link.dataValues.url)
     }
 
