@@ -22,7 +22,7 @@ router.get('/', async function(req, res, next) {
     if ((cityFromID === undefined) || (cityFromID === null)){
         link = await AddBD(link_original, generateShorty.GenerateShorty(link_original));
     }else{
-        link = cityFromID.ldataValues.shorty;
+        link = cityFromID.dataValues.shorty;
     }
 
 
