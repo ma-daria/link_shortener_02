@@ -11,16 +11,25 @@ router.get('/', async function(req, res, next) {
     let link = '';
     let user = 0;
 
-    let cookie = req.cookie;
+    let cookie = req.cookies.user;
     if (cookie === undefined){
         let us = await AddUser(generateUser.GenerateUser());
         user = us[0];
-        req.cookie = "user=" + us[1];
+        res.cookie('user', us[1]);
     }else {
-        user = cookie.replace('user=', '');
+        let user_bd = await users.findOne({
+            where: {
+                name: cookie
+            }
+
+        })
+            .catch((err) => {
+                console.log(err)
+            });
+        user = user_bd.dataValues.id;
     }
 
-    let cityFromID = await links.findOne({
+    let link_s = await links.findOne({
         attributes: ['shorty'],
         where: {
             url: link_original
@@ -30,10 +39,10 @@ router.get('/', async function(req, res, next) {
             console.log(err)
         });
 
-    if ((cityFromID === undefined) || (cityFromID === null)){
+    if ((link_s === undefined) || (link_s === null)){
         link = await AddShorty(link_original, generateShorty.GenerateShorty(link_original), user);
     }else{
-        link = cityFromID.dataValues.shorty;
+        link = link_s.dataValues.shorty;
     }
 
 
