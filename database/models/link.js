@@ -12,8 +12,8 @@ const  link = sequelize.define('link', {
         unique: true
     },
 
-    autor: {
-        type: Sequelize.STRING(3000),
+    user_id: {
+        type: Sequelize.INTEGER,
     },
 
     transitions: {
