@@ -17,7 +17,7 @@ router.get('/', async function(req, res, next) {
         user = us[0];
         req.cookie = "user=" + us[1];
     }else {
-
+        user = cookie.replace('user=', '');
     }
 
     let cityFromID = await links.findOne({
