@@ -4,8 +4,8 @@
 function GenerateShorty(link) {
     let length = 7;
     let shorty = '';
-    link = link.replace('https', '');
-    link = link.replace('http', '');
+    link = link.replace('https://', '');
+    link = link.replace('http://', '');
     link = link.replace(/\//g, '');
     link = link.replace(/\./g, '');
 

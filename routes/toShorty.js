@@ -8,6 +8,9 @@ const users = require('../database/models/user');
 
 router.get('/', async function(req, res, next) {
     let  link_original = req.query.link;
+    if (link_original.indexOf('http://') || link_original.indexOf('https://') ){
+        link_original = 'http://'+link_original;
+    }
     let link = '';
     let user = 0;
 
