@@ -33,8 +33,6 @@ router.get('/', async function(req, res, next) {
 
         res.redirect(link.dataValues.url)
     }
-
-    console.log('test');
 });
 
 module.exports = router;
