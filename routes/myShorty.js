@@ -12,29 +12,10 @@ router.get('/', async function(req, res) {
 
     let cookie = req.cookies.user;
     if (cookie !== undefined) {
-
-        let user_bd = await users.findOne({
-            where: {
-                name: cookie
-            }
-
-        })
-            .catch((err) => {
-                console.log(err)
-            });
-
-        let inf = await Links.findAll({
-            where: {
-                user_id: user_bd.dataValues.id
-            }
-
-        })
-            .catch((err) => {
-                console.log(err)
-            });
-
-        links = inf.map((o) => o.dataValues.url);
-        shorties = inf.map((o) => o.dataValues.shorty);
+        let user_bd = await getIdUser(cookie);
+        let resLinks = await getMyLinks(user_bd);
+        links = resLinks.links;
+        shorties = resLinks.shorties;
     }
 
     res.render('myShorty', {
@@ -42,5 +23,43 @@ router.get('/', async function(req, res) {
         shorties: shorties
     });
 });
+
+/**
+ * получить id юзера по токену
+ * @param cookie - токен
+ * @returns {Promise<*>} - id юзера
+ */
+async function getIdUser(cookie){
+    let user_bd = await users.findOne({
+        where: {
+            name: cookie
+        }
+
+    })
+        .catch((err) => {
+            console.log(err)
+        });
+    return  user_bd.dataValues.id
+}
+
+/**
+ * получить списко ссылко пользователя
+ * @param user_bd - id пользователя
+ * @returns {Promise<{links: *, shorties: *}>} - {длинные ссылки, короткие ссылки}
+ */
+async function getMyLinks(user_bd){
+    let inf = await Links.findAll({
+        where: {
+            user_id: user_bd
+        }
+    })
+        .catch((err) => {
+            console.log(err)
+        });
+
+    let links = inf.map((o) => o.dataValues.url);
+    let shorties = inf.map((o) => o.dataValues.shorty);
+    return {links, shorties}
+}
 
 module.exports = router;

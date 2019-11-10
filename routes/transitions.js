@@ -8,28 +8,11 @@ const links = require('../database/models/link');
 router.get('/', async function(req, res) {
     let link = null;
     let quantity = 0;
-    let f = true;
 
     if (req.query.link !== undefined){
         link = req.query.link;
         link = link.replace(process.env.MY_SITE, '');
-
-        let li = await links.findOne({
-            attributes: ['transitions'],
-            where: {
-                shorty: link
-            }
-        })
-            .catch((err) => {
-                f = false;
-                console.log(err)
-            });
-        if ((f)&&(li !== undefined)&&(li !== null)) {
-            quantity = li.dataValues.transitions;
-        }
-        else {
-            quantity = 'not found';
-        }
+        quantity = await getQuantity(link);
         link = process.env.MY_SITE + link;
     }
 
@@ -39,4 +22,30 @@ router.get('/', async function(req, res) {
     });
 });
 
+/**
+ * Получить количество переходов по ссылке
+ * @param link - ссылка
+ * @returns {Promise<link.transitions|{type}>} - количество
+ */
+async function getQuantity(link){
+    let f = true;
+    let quantity = 0;
+    let li = await links.findOne({
+        attributes: ['transitions'],
+        where: {
+            shorty: link
+        }
+    })
+        .catch((err) => {
+            f = false;
+            console.log(err)
+        });
+    if ((f)&&(li !== undefined)&&(li !== null)) {
+        quantity = li.dataValues.transitions;
+    }
+    else {
+        quantity = 'not found';
+    }
+    return quantity;
+}
 module.exports = router;
