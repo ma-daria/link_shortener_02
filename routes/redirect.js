@@ -15,15 +15,15 @@ router.get('/', async function(req, res) {
         res.render('error404');
     }
     else {
-        transitionsPlusPlus(link.dataValues.transitions, shorty);
-        res.redirect(link.dataValues.url)
+        transitionsPlusPlus(shorty);
+        res.redirect(link)
     }
 });
 
 /**
  * Получить запись из базы о ссылке
  * @param shorty - короткая ссылка
- * @returns {Promise<T>} - строка из базы
+ * @returns {Promise<*>} - строка из базы
  */
 async function getLink(shorty){
     let link = await links.findOne({
@@ -35,18 +35,21 @@ async function getLink(shorty){
         .catch((err) => {
             console.log(err);
         });
-    return link
+    if (link == null) {
+        return null
+    }
+    return link.dataValues.url
 }
+
 
 /**
  * Увелечение количества проходов оп ссылке на 1
- * @param transitions - текущее количество
  * @param shorty - коротчкая ссылка
  * @returns {Promise<void>}
  */
-async function transitionsPlusPlus(transitions, shorty){
-    await links.update(
-        {transitions: transitions + 1},
+async function transitionsPlusPlus( shorty){
+    await links.increment(
+        {transitions: 1},
         {where:{
                 shorty: shorty
             }}
