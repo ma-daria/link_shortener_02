@@ -35,7 +35,8 @@
 2) cd link_shortener_02
 3) npm install
 4) npm start
-*Внимание!* 
+
+**Внимание!** 
 *dev1* - 1й вариант
 *dev2* - 2й вариант
 *master* - пустой
