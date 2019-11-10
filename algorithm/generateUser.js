@@ -1,5 +1,7 @@
 /**
- * @return {string}
+ * Герерация пользователя
+ * @returns {string} - токен пользовотеля
+ * @constructor
  */
 function GenerateUser(){
     let d = new Date();

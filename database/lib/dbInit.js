@@ -10,7 +10,6 @@ async function init () {
     // await User.sync({force:true});
     // await Link.sync({force:true});
 
-
     await User.sync();
     await Link.sync();
 

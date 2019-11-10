@@ -3,6 +3,9 @@ let router = express.Router();
 const Links = require('../database/models/link');
 const users = require('../database/models/user');
 
+/**
+ * роутер для страницы 'myShorty', ищет ссылки пользователя
+ */
 router.get('/', async function(req, res, next) {
     let links = [];
     let shorties = [];
@@ -33,8 +36,6 @@ router.get('/', async function(req, res, next) {
         links = inf.map((o) => o.dataValues.url);
         shorties = inf.map((o) => o.dataValues.shorty);
     }
-
-
 
     res.render('myShorty', {
         links: links,

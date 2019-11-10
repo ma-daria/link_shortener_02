@@ -5,7 +5,9 @@ const generateUser = require('../algorithm/generateUser');
 const links = require('../database/models/link');
 const users = require('../database/models/user');
 
-
+/**
+ * роутер для страницы 'toShorty'. генерация коротких ссылок
+ */
 router.get('/', async function(req, res, next) {
     let  link_original = req.query.link;
     if (link_original.indexOf('http://') || link_original.indexOf('https://') ){

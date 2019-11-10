@@ -2,10 +2,12 @@ let express = require('express');
 let router = express.Router();
 const links = require('../database/models/link');
 
+/**
+ * открытие короткой ссылки и превращения ее в длинную
+ */
 router.get('/', async function(req, res, next) {
     let shorty = req.baseUrl;
     shorty = shorty.slice(1);
-
 
     let link = await links.findOne({
         attributes: ['url', 'transitions'],
