@@ -5,6 +5,7 @@ const links = require('../database/models/link');
 router.get('/', async function(req, res, next) {
     let link = null;
     let quantity = 0;
+    let f = true;
 
     if (req.query.link !== undefined){
         link = req.query.link;
@@ -17,13 +18,20 @@ router.get('/', async function(req, res, next) {
             }
         })
             .catch((err) => {
+                f = false;
                 console.log(err)
             });
-        quantity = li.dataValues.transitions
+        if ((f)&&(li !== undefined)&&(li !== null)) {
+            quantity = li.dataValues.transitions;
+        }
+        else {
+            quantity = 'not found';
+        }
+        link = process.env.MY_SITE + link;
     }
 
     res.render('transitions', {
-        link: process.env.MY_SITE+link,
+        link: link,
         quantity: quantity
     });
 });
