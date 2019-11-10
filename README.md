@@ -62,16 +62,16 @@
 
 *Тест wrk*
 
-ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
+ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/x032bay
 
-Running 30s test @ http://192.168.1.168:3000/0tl6acn
+Running 30s test @ http://192.168.1.168:3000/x032bay
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   576.79ms   78.68ms   1.16s    86.39%
-    Req/Sec    93.10     87.38   323.00     71.24%
-  20420 requests in 30.07s, 6.52MB read
-Requests/sec:    679.02
-Transfer/sec:    222.14KB
+    Latency     1.48s   112.25ms   1.80s    95.55%
+    Req/Sec    54.86     54.70   323.00     81.49%
+  7846 requests in 30.08s, 2.95MB read
+Requests/sec:    260.84
+Transfer/sec:    100.36KB
 
 
 **2й вариант**
@@ -81,16 +81,16 @@ Transfer/sec:    222.14KB
 
 *Тест wrk*
 
-ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
+ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/x032bay
 
-Running 30s test @ http://192.168.1.168:3000/0tl6acn
+Running 30s test @ http://192.168.1.168:3000/x032bay
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   627.23ms   64.23ms 954.80ms   76.39%
-    Req/Sec    75.70     77.97   323.00     83.75%
-  18534 requests in 30.08s, 5.92MB read
-Requests/sec:    616.11
-Transfer/sec:    201.56KB
+    Latency     1.27s   198.22ms   1.38s    88.59%
+    Req/Sec    50.93     47.18   300.00     77.38%
+  9057 requests in 30.10s, 3.40MB read
+Requests/sec:    300.90
+Transfer/sec:    115.77KB
 
 
 **3й вариант**
@@ -98,3 +98,16 @@ Transfer/sec:    201.56KB
 Короткая и Длинная ссылки хранятся в редисе. поиск длинной для перехода по короткой осуществляется в редисе, если не нашел то в базе MySQL.
 Для хранения информации о юзере, о ссылках и переходах используется MySQL.
 При переходе по короткой ссылке сервер не дожидается ответа о записи информации о переходе.
+
+*Тест wrk*
+
+ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/x032bay
+
+Running 30s test @ http://192.168.1.168:3000/x032bay
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   182.83ms   55.87ms 633.23ms   93.40%
+    Req/Sec   191.84     95.46   555.00     55.95%
+  65568 requests in 30.08s, 24.64MB read
+Requests/sec:   2179.92
+Transfer/sec:    838.76KB
