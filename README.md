@@ -46,6 +46,7 @@
 
 *Тест wrk*
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
+
 Running 30s test @ http://192.168.1.168:3000/0tl6acn
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
@@ -61,6 +62,7 @@ Transfer/sec:    215.90KB
 
 *Тест wrk*
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
+
 Running 30s test @ http://192.168.1.168:3000/0tl6acn
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
