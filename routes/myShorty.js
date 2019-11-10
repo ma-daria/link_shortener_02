@@ -48,7 +48,7 @@ async function getIdUser(cookie){
  * @returns {Promise<{links: *, shorties: *}>} - {длинные ссылки, короткие ссылки}
  */
 async function getMyLinks(user_bd){
-    let inf = await Links.findAll({
+    let inf = Links.findAll({
         where: {
             user_id: user_bd
         }
