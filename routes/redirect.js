@@ -8,9 +8,7 @@ const links = require('../database/models/link');
 router.get('/', async function(req, res) {
     let shorty = req.baseUrl;
     shorty = shorty.slice(1);
-
     let link = await getLink(shorty);
-
     if ((link === undefined)||(link === null)){
         res.render('error404');
     }
