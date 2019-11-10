@@ -71,14 +71,6 @@ Requests/sec:    659.94
 Transfer/sec:    215.90KB
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
 
-Running 30s test @ http://192.168.1.168:3000/0tl6acn
-  12 threads and 400 connections
-  Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   650.52ms   96.09ms   1.12s    84.96%
-    Req/Sec    82.93     80.48   323.00     79.76%
-  18051 requests in 30.10s, 5.77MB read
-Requests/sec:    599.74
-Transfer/sec:    196.20KB
 
 **2й вариант**
 
@@ -87,3 +79,12 @@ Transfer/sec:    196.20KB
 
 *Тест wrk*
 
+
+Running 30s test @ http://192.168.1.168:3000/0tl6acn
+  12 threads and 400 connections
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency   650.52ms   96.09ms   1.12s    84.96%
+    Req/Sec    82.93     80.48   323.00     79.76%
+  18051 requests in 30.10s, 5.77MB read
+Requests/sec:    599.74
+Transfer/sec:    196.20KB
