@@ -69,14 +69,6 @@ Running 30s test @ http://192.168.1.168:3000/0tl6acn
   19836 requests in 30.06s, 6.34MB read
 Requests/sec:    659.94
 Transfer/sec:    215.90KB
-
-**2й вариант**
-
-Для хранения информации о юзере, о ссылках и переходах используется MySQL.
-При переходе по короткой ссылке сервер не дожидается ответа о записи информации о переходе.
-
-*Тест wrk*
-
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
 
 Running 30s test @ http://192.168.1.168:3000/0tl6acn
@@ -87,3 +79,11 @@ Running 30s test @ http://192.168.1.168:3000/0tl6acn
   18051 requests in 30.10s, 5.77MB read
 Requests/sec:    599.74
 Transfer/sec:    196.20KB
+
+**2й вариант**
+
+Для хранения информации о юзере, о ссылках и переходах используется MySQL.
+При переходе по короткой ссылке сервер не дожидается ответа о записи информации о переходе.
+
+*Тест wrk*
+
