@@ -64,12 +64,11 @@ ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --
 Running 30s test @ http://192.168.1.168:3000/0tl6acn
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   590.03ms   78.38ms   1.12s    79.75%
-    Req/Sec    95.57     84.57   320.00     68.30%
-  19836 requests in 30.06s, 6.34MB read
-Requests/sec:    659.94
-Transfer/sec:    215.90KB
-ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
+    Latency   576.79ms   78.68ms   1.16s    86.39%
+    Req/Sec    93.10     87.38   323.00     71.24%
+  20420 requests in 30.07s, 6.52MB read
+Requests/sec:    679.02
+Transfer/sec:    222.14KB
 
 
 **2й вариант**
@@ -79,12 +78,14 @@ ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --
 
 *Тест wrk*
 
+ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
 
 Running 30s test @ http://192.168.1.168:3000/0tl6acn
   12 threads and 400 connections
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   650.52ms   96.09ms   1.12s    84.96%
-    Req/Sec    82.93     80.48   323.00     79.76%
-  18051 requests in 30.10s, 5.77MB read
-Requests/sec:    599.74
-Transfer/sec:    196.20KB
+    Latency   627.23ms   64.23ms 954.80ms   76.39%
+    Req/Sec    75.70     77.97   323.00     83.75%
+  18534 requests in 30.08s, 5.92MB read
+Requests/sec:    616.11
+Transfer/sec:    201.56KB
+
