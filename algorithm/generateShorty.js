@@ -2,7 +2,6 @@
  * Генерация короткой ссылке на основе исходной
  * @param link - исходная ссылка
  * @returns {string} - короткая ссыла
- * @constructor
  */
 function GenerateShorty(link) {
     let length = 7;
