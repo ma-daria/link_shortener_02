@@ -47,8 +47,8 @@ async function getLink(shorty){
  * @param shorty - коротчкая ссылка
  * @returns {Promise<void>}
  */
-async function transitionsPlusPlus( shorty){
-    await links.increment(
+function transitionsPlusPlus( shorty){
+    links.increment(
         {transitions: 1},
         {where:{
                 shorty: shorty
