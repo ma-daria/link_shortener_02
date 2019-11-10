@@ -5,7 +5,7 @@ const links = require('../database/models/link');
 /**
  * роутер для страницы 'transitions'. Поиск количества переходов по ссылке.
  */
-router.get('/', async function(req, res, next) {
+router.get('/', async function(req, res) {
     let link = null;
     let quantity = 0;
     let f = true;

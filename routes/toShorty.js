@@ -8,7 +8,7 @@ const users = require('../database/models/user');
 /**
  * роутер для страницы 'toShorty'. генерация коротких ссылок
  */
-router.get('/', async function(req, res, next) {
+router.get('/', async function(req, res) {
     let  link_original = req.query.link;
     if (link_original.indexOf('http://') || link_original.indexOf('https://') ){
         link_original = 'http://'+link_original;
@@ -57,7 +57,12 @@ router.get('/', async function(req, res, next) {
 });
 
 /**
- * @return {string}
+ * Добавление ссылки в базу
+ * @param link_original - длинная ссылка
+ * @param link - короткая ссылка
+ * @param user - id пользователья
+ * @returns {Promise<string|*>} - короткая ссылка
+ * @constructor
  */
 async function AddShorty(link_original, link, user) {
     let errLink = null;
@@ -76,7 +81,12 @@ async function AddShorty(link_original, link, user) {
     } else return errLink;
 }
 
-
+/**
+ * Добавление пользоватля в базу
+ * @param user - токен пользователя
+ * @returns {Promise<*[]|*>} - [id пользователя, токен пользователя]
+ * @constructor
+ */
 async function AddUser(user) {
     let errUser = null;
     const us = await users.create({

@@ -6,7 +6,7 @@ const users = require('../database/models/user');
 /**
  * роутер для страницы 'myShorty', ищет ссылки пользователя
  */
-router.get('/', async function(req, res, next) {
+router.get('/', async function(req, res) {
     let links = [];
     let shorties = [];
 

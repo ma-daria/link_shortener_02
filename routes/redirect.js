@@ -5,7 +5,7 @@ const links = require('../database/models/link');
 /**
  * открытие короткой ссылки и превращения ее в длинную
  */
-router.get('/', async function(req, res, next) {
+router.get('/', async function(req, res) {
     let shorty = req.baseUrl;
     shorty = shorty.slice(1);
 
