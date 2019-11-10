@@ -15,7 +15,7 @@ router.get('/', async function(req, res) {
         res.render('error404');
     }
     else {
-        await transitionsPlusPlus(link.dataValues.transitions, shorty);
+        transitionsPlusPlus(link.dataValues.transitions, shorty);
         res.redirect(link.dataValues.url)
     }
 });
