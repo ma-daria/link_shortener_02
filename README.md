@@ -37,15 +37,20 @@
 4) npm start
 
 **Внимание!** 
+
 *dev1* - 1й вариант
+
 *dev2* - 2й вариант
+
 *master* - пустой
 
 **1й вариант**
+
 Для хранения информации о юзере, о ссылках и переходах используется MySQL.
 При переходе по короткой ссылке сервер дожидается ответа о записи информации о переходе.
 
 *Тест wrk*
+
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
 
 Running 30s test @ http://192.168.1.168:3000/0tl6acn
@@ -58,10 +63,12 @@ Requests/sec:    659.94
 Transfer/sec:    215.90KB
 
 **2й вариант**
+
 Для хранения информации о юзере, о ссылках и переходах используется MySQL.
 При переходе по короткой ссылке сервер не дожидается ответа о записи информации о переходе.
 
 *Тест wrk*
+
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/0tl6acn
 
 Running 30s test @ http://192.168.1.168:3000/0tl6acn
