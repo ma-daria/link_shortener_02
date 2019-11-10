@@ -48,10 +48,15 @@
 *master* - пустой
 
 **Описание router**
+
 / - формирование страницы 'index'
+
 /transitions?link= - Поиск переходов по заданой ссылке
+
 /myShorty - Поиск всех ссылок сокращенных юзером
+
 /toShorty?link= - Сокращение ссылки 
+
 /:link - переадрисация ссылки
 
 
@@ -65,12 +70,19 @@
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/x032bay
 
 Running 30s test @ http://192.168.1.168:3000/x032bay
+
   12 threads and 400 connections
+  
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.48s   112.25ms   1.80s    95.55%
-    Req/Sec    54.86     54.70   323.00     81.49%
+  
+   Latency     1.48s   112.25ms   1.80s    95.55%
+    
+   Req/Sec    54.86     54.70   323.00     81.49%
+    
   7846 requests in 30.08s, 2.95MB read
+  
 Requests/sec:    260.84
+
 Transfer/sec:    100.36KB
 
 
@@ -84,12 +96,19 @@ Transfer/sec:    100.36KB
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/x032bay
 
 Running 30s test @ http://192.168.1.168:3000/x032bay
+
   12 threads and 400 connections
+  
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency     1.27s   198.22ms   1.38s    88.59%
-    Req/Sec    50.93     47.18   300.00     77.38%
+  
+   Latency     1.27s   198.22ms   1.38s    88.59%
+   
+   Req/Sec    50.93     47.18   300.00     77.38%
+   
   9057 requests in 30.10s, 3.40MB read
+  
 Requests/sec:    300.90
+
 Transfer/sec:    115.77KB
 
 
@@ -104,10 +123,17 @@ Transfer/sec:    115.77KB
 ma-daria@madaria-UX32LA:~/code/WebstormProjects/link_shortener_02$ docker run --rm williamyeh/wrk -t12 -c400 -d30s  http://192.168.1.168:3000/x032bay
 
 Running 30s test @ http://192.168.1.168:3000/x032bay
+
   12 threads and 400 connections
+  
   Thread Stats   Avg      Stdev     Max   +/- Stdev
-    Latency   182.83ms   55.87ms 633.23ms   93.40%
-    Req/Sec   191.84     95.46   555.00     55.95%
+  
+   Latency   182.83ms   55.87ms 633.23ms   93.40%
+    
+   Req/Sec   191.84     95.46   555.00     55.95%
+   
   65568 requests in 30.08s, 24.64MB read
+  
 Requests/sec:   2179.92
+
 Transfer/sec:    838.76KB
