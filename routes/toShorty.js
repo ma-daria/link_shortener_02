@@ -2,6 +2,7 @@ let express = require('express');
 let router = express.Router();
 const links = require('../database/models/link');
 const users = require('../database/models/user');
+const redis = require('../redis');
 
 /**
  * роутер для страницы 'toShorty'.
@@ -69,7 +70,9 @@ async function toShorty(link_original, user){
         });
 
     if ((link_s === undefined) || (link_s === null)){
-        link = await AddShorty(link_original, GenerateShorty(link_original), user);
+        const shortLink = GenerateShorty(link_original);
+        link = await AddShorty(link_original, shortLink, user);
+        await addLinkReliss(link_original, link);
     }else{
         link = link_s.dataValues.shorty;
     }
@@ -118,6 +121,12 @@ async function AddShorty(link_original, link, user) {
         return String(li.dataValues.shorty)
     } else return errLink;
 }
+
+async function addLinkReliss(link_original, link) {
+    const redisClient = await redis.waitForConnection();
+    redisClient.set(link, link_original);
+}
+
 
 /**
  * Герерация пользователя
